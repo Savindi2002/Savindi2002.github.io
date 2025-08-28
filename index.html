@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Savindi Hewage | Portfolio</title>
+  <meta name="description" content="Portfolio of Savindi Hewage — BSc (Hons) Data Science undergraduate at Sabaragamuwa University of Sri Lanka. Projects in Python, Java, MERN, PHP/Laravel, MySQL." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121933;
+      --text: #e9ecf1;
+      --muted: #b9c0d0;
+      --accent: #7c5cff;
+      --accent-2: #2fe0a2;
+      --ring: rgba(124,92,255,.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); background: radial-gradient(1200px 800px at 80% -10%, rgba(124,92,255,.08), transparent),
+                 radial-gradient(900px 600px at 10% 110%, rgba(47,224,162,.08), transparent), var(--bg);
+      line-height: 1.6;
+    }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    /* Nav */
+    .nav { position: sticky; top: 0; backdrop-filter: blur(8px); background: rgba(11,16,32,.6); border-bottom: 1px solid rgba(255,255,255,.06); z-index: 10; }
+    .nav .inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+    .brand { font-weight: 700; letter-spacing: .5px; }
+    .nav a { margin-left: 18px; color: var(--muted); }
+    .nav a:hover { color: var(--text); }
+    .btn { display: inline-block; padding: 10px 16px; border-radius: 12px; background: var(--accent); color: white; font-weight: 600; box-shadow: 0 10px 20px var(--ring); border: 0; }
+    .btn:hover { filter: brightness(1.05); text-decoration: none; }
+    .ghost { background: rgba(255,255,255,.06); color: var(--text); box-shadow: none; border: 1px solid rgba(255,255,255,.08); }
+
+    /* Hero */
+    .hero { display: grid; gap: 24px; grid-template-columns: repeat(12, 1fr); padding: 48px 24px 12px; align-items: center; }
+    .hero-left { grid-column: 1 / span 8; }
+    .hero-right { grid-column: 9 / span 4; text-align: center; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); padding: 6px 12px; border-radius: 999px; }
+    h1 { font-size: clamp(28px, 5vw, 44px); margin: 10px 0 8px; line-height: 1.15; }
+    .lead { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); }
+    .quick { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+    .avatar { width: 180px; height: 180px; border-radius: 24px; display: inline-grid; place-items: center; background: linear-gradient(135deg, rgba(124,92,255,.25), rgba(47,224,162,.25)); border: 1px solid rgba(255,255,255,.12); box-shadow: 0 20px 40px rgba(0,0,0,.25); }
+    .avatar span { font-size: 64px; }
+
+    /* Sections */
+    section { padding: 48px 24px; }
+    .section-title { font-size: 22px; margin-bottom: 18px; letter-spacing: .3px; }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 18px; box-shadow: 0 10px 25px rgba(0,0,0,.15); }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge { padding: 6px 10px; border-radius: 999px; background: rgba(124,92,255,.18); border: 1px solid rgba(124,92,255,.4); color: #e6e0ff; font-size: 13px; }
+    .muted { color: var(--muted); font-size: 14px; }
+
+    /* Timeline */
+    .timeline { position: relative; }
+    .timeline::before { content: ""; position: absolute; left: 12px; top: 4px; bottom: 4px; width: 2px; background: rgba(255,255,255,.12); }
+    .t-item { position: relative; padding-left: 38px; margin-bottom: 18px; }
+    .t-dot { position: absolute; left: 6px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 4px rgba(47,224,162,.2); }
+
+    /* Projects */
+    .pgrid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .pcard { border-radius: 16px; border: 1px solid rgba(255,255,255,.08); overflow: hidden; background: rgba(255,255,255,.04); }
+    .pimg { aspect-ratio: 16/9; background: linear-gradient(135deg, rgba(124,92,255,.25), rgba(47,224,162,.25)); display: grid; place-items: center; font-size: 32px; }
+    .pbody { padding: 14px; }
+
+    /* Footer */
+    footer { padding: 28px 24px; border-top: 1px solid rgba(255,255,255,.08); color: var(--muted); text-align: center; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-left, .hero-right { grid-column: 1 / -1; }
+      .col-4, .col-6, .col-8 { grid-column: span 12; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="inner wrap" style="padding-left:0;padding-right:0;">
+      <div class="brand">Savindi Hewage</div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="https://github.com/Savindi2002" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-left">
+      <span class="pill">BSc (Hons) in Data Science · 2nd Year · Sabaragamuwa University of Sri Lanka</span>
+      <h1>Hi, I'm Savindi — I build clean, practical software and I love learning new things.</h1>
+      <p class="lead">I’m a Data Science undergraduate passionate about <b>Python</b>, <b>Java</b>, <b>MERN</b>, <b>PHP/Laravel</b>, and <b>MySQL</b>. I’m actively developing projects and continuously improving my skills.
+      </p>
+      <div class="quick">
+        <a class="btn" href="#projects">See Projects</a>
+        <a class="btn ghost" href="#contact">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="avatar"><span>👩🏻‍💻</span></div>
+      <div class="muted" style="margin-top:10px;">Announcer · Former Prefect · Lifelong Learner</div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="wrap">
+    <h2 class="section-title">About</h2>
+    <div class="grid">
+      <div class="card col-8">
+        <p>
+          I’m an undergraduate at <b>Sabaragamuwa University of Sri Lanka</b>, following <b>BSc. (Hons) in Data Science</b>. I enjoy solving problems, building web applications, and exploring data. Before university, I earned <b>9 A's at O/L</b> (Sujatha Vidyalaya, Matara) and at A/L I achieved <b>A in Combined Mathematics</b>, <b>B in Chemistry</b>, and <b>C in Physics</b> with a <b>Z-score of 1.4020</b>.
+        </p>
+        <p>
+          Beyond academics, I served as a <b>Prefect</b> and work as an <b>Announcer</b>, which strengthened my teamwork and communication skills.
+        </p>
+      </div>
+      <div class="card col-4">
+        <div class="muted">Quick facts</div>
+        <ul>
+          <li>📍 Sri Lanka</li>
+          <li>🎓 2nd-year undergraduate</li>
+          <li>💼 Open to internships</li>
+          <li>🧭 Goal: become a well-rounded engineer & analyst</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="wrap">
+    <h2 class="section-title">Skills</h2>
+    <div class="card">
+      <div class="badges">
+        <span class="badge">Python</span>
+        <span class="badge">Java</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">React (MERN)</span>
+        <span class="badge">Node.js</span>
+        <span class="badge">Express</span>
+        <span class="badge">MongoDB</span>
+        <span class="badge">PHP</span>
+        <span class="badge">Laravel</span>
+        <span class="badge">MySQL</span>
+        <span class="badge">HTML & CSS</span>
+        <span class="badge">Git & GitHub</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="wrap">
+    <h2 class="section-title">Education</h2>
+    <div class="grid">
+      <div class="card col-12 timeline">
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <b>BSc (Hons) in Data Science</b> — Sabaragamuwa University of Sri Lanka (2nd Year)<br />
+          <span class="muted">Current</span>
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <b>G.C.E. Advanced Level</b> — A (Combined Maths), B (Chemistry), C (Physics) · Z = 1.4020
+        </div>
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <b>G.C.E. Ordinary Level</b> — 9 A's · Sujatha Vidyalaya, Matara
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="wrap">
+    <h2 class="section-title">Projects</h2>
+    <div class="pgrid">
+      <article class="pcard">
+        <div class="pimg">🧭</div>
+        <div class="pbody">
+          <h3>Job Portal Web Application</h3>
+          <p class="muted">Built with <b>PHP/Laravel</b> and <b>MySQL</b>: user authentication, job listings, applications, and admin features.</p>
+          <p>
+            <a href="https://github.com/Savindi2002" target="_blank" rel="noopener">Code</a>
+            · <a href="#" onclick="alert('Add your live demo link here!'); return false;">Live demo</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pimg">🛒</div>
+        <div class="pbody">
+          <h3>E‑commerce Website (MERN)</h3>
+          <p class="muted">Full‑stack store using <b>MongoDB</b>, <b>Express</b>, <b>React</b>, <b>Node</b> with JWT auth, product catalog, and cart/checkout.</p>
+          <p>
+            <a href="https://github.com/Savindi2002" target="_blank" rel="noopener">Code</a>
+            · <a href="#" onclick="alert('Add your live demo link here!'); return false;">Live demo</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="pcard">
+        <div class="pimg">📊</div>
+        <div class="pbody">
+          <h3>Data Science Mini‑Projects</h3>
+          <p class="muted">Exploratory analysis and small models in <b>Python</b> (pandas, matplotlib) — focusing on clean, reproducible notebooks.</p>
+          <p>
+            <a href="https://github.com/Savindi2002" target="_blank" rel="noopener">Notebook gallery</a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP & ACTIVITIES -->
+  <section id="leadership" class="wrap">
+    <h2 class="section-title">Leadership & Activities</h2>
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Prefect</h3>
+        <p class="muted">Developed leadership, organization, and teamwork skills by coordinating school duties and events.</p>
+      </div>
+      <div class="card col-6">
+        <h3>Announcer</h3>
+        <p class="muted">Public speaking and presentation experience — confident communication in Sinhala/English.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="wrap">
+    <h2 class="section-title">Contact</h2>
+    <div class="grid">
+      <div class="card col-8">
+        <p class="muted">I’m open to internships, collaborations, and interesting projects. Let’s connect!</p>
+        <p>
+          📧 <a href="mailto:your.email@example.com">your.email@example.com</a><br/>
+          🔗 <a href="https://github.com/Savindi2002" target="_blank" rel="noopener">github.com/Savindi2002</a>
+        </p>
+        <div class="quick">
+          <a class="btn" href="#" onclick="alert('Replace with your resume PDF link!'); return false;">Download Résumé</a>
+          <a class="btn ghost" href="https://github.com/Savindi2002?tab=repositories" target="_blank" rel="noopener">View All Repos</a>
+        </div>
+      </div>
+      <div class="card col-4">
+        <div class="muted">Availability</div>
+        <ul>
+          <li>✔️ Part‑time / Internship</li>
+          <li>✔️ Remote or On‑site</li>
+          <li>✔️ Open source contributions</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Savindi Hewage · Built with ❤️ and vanilla HTML/CSS
+  </footer>
+
+  <script>
+    // Set year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
