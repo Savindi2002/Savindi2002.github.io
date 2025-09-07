@@ -93,6 +93,14 @@ h2 {
   margin-bottom: 20px;
   box-shadow: 0px 6px 16px rgba(0,0,0,0.6);
 }
+
+
+.intro-heading {
+  font-size: 2.2rem;
+  color: #ff9800;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
 .sub-heading {
   color: #ff4d4d;  /* Red color */
   font-size: 1.4rem;
@@ -119,13 +127,6 @@ h2 {
   50% { border-color: transparent }
 }
 
-
-.intro-heading {
-  font-size: 2.2rem;
-  color: #ff9800;
-  margin-bottom: 20px;
-  font-family: 'Montserrat', sans-serif;
-}
 
 .big-intro {
   font-size: 1.4rem;
