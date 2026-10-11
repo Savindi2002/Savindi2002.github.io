@@ -3,212 +3,282 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Savindi Hewage | Portfolio</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <title>Savindi Hewage | Data Science &amp; Machine Learning Portfolio</title>
+  <meta name="description" content="Portfolio of Savindi Hewage, a Data Science undergraduate at Sabaragamuwa University of Sri Lanka, aiming for data science, ML/AI engineering and business analyst roles." />
+  <meta name="theme-color" content="#0b1020" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Navbar -->
-  <header>
-    <h1 class="logo">Savindi Hewage</h1>
-    <nav>
+  <div class="progress" id="progress"></div>
+
+  <header class="site-header">
+    <a href="#home" class="logo">Savindi<span>.</span>H</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+    <nav class="nav" id="nav">
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#extra">Extra-Curricular</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#beyond">Beyond Academics</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-    <!-- Home Section -->
-  <section id="home" class="home-section section-light" data-aos="fade-up">
-  <div class="home-content" style="display: flex; align-items: center; gap: 40px;">
-    
-    <!-- Left Side (Text) -->
-    <div class="home-text" style="flex: 1;">
-     <h2 class="intro-heading">Hello, I'm Savindi Hewage 👋</h2>
-<h3 class="sub-heading animated-sub">Data Scientist | Learning Enthusiastic | Dreamer</h3>
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <canvas id="network" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <div>
+          <p class="hello">Hello, I'm</p>
+          <h1>Savindi <span class="grad">Hewage</span></h1>
+          <p class="role-line">Aspiring <b id="typed"></b><span class="caret"></span></p>
+          <p class="hero-copy">
+            Second-year Data Science undergraduate at Sabaragamuwa University of Sri Lanka.
+            I turn raw data into clear insights and build intelligent, user-friendly applications.
+          </p>
+          <div class="cta-row">
+            <a href="#projects" class="btn btn-primary">View my projects</a>
+            <a href="#contact" class="btn btn-ghost">Contact me</a>
+          </div>
+        </div>
 
-      
-      <p class="big-intro">
-        I am a <span class="highlight">passionate and motivated</span> 
-        <span class="big-highlight">second-year Data Science undergraduate</span> at 
-        <span class="uni">Sabaragamuwa University of Sri Lanka</span>, from Matara.  
-        My core interests lie in <span class="highlight">Machine Learning</span> 
-        and <span class="highlight">Web Development</span>.  
-        I love <span class="emphasis">transforming complex data</span> into 
-        <span class="emphasis">actionable insights</span> and building 
-        <span class="highlight">interactive digital experiences</span>.
-      </p>
-
-      <p class="second-intro">
-        Beyond academics, I am always <span class="highlight">curious</span> and eager to 
-        learn new technologies. My skills include <span class="highlight">PHP Laravel, 
-        MySQL, HTML, CSS, Java, Python, MongoDB, and the MERN Stack</span>.  
-        I strive to continuously grow and contribute to <span class="emphasis">innovative projects</span>.
-      </p>
-    </div>
-
-    <!-- Right Side (Photo) -->
-    <div class="home-photo" style="flex-shrink: 0;">
-      <img src="photo.jpg" alt="Savindi Hewage" class="animated-photo"
-        style="width: 250px; height: auto; border: 2px solid #000; border-radius: 10px;">
-    </div>
-
-  </div>
-</section>
-
-
-  <!-- About Section -->
-  <section id="about" class="about section-dark" data-aos="fade-right">
-    <h2>About Me</h2>
-    <div class="about-container">
-      <img src="photo.jpg" alt="Savindi Hewage" class="animated-photo"
-        style="float: left; margin-right: 20px; width: 220px; height: auto; border: 2px solid #000; border-radius: 10px;">
-      <div>
-        <p class="about-text">
-          I am a dedicated and enthusiastic undergraduate pursuing a degree in 
-          <span class="highlight">Data Science</span> at 
-          <span class="uni">Sabaragamuwa University of Sri Lanka</span>.  
-          My passion lies at the intersection of 
-          <span class="highlight">Machine Learning</span> and 
-          <span class="highlight">Web Development</span>, where I strive to 
-          create <span class="emphasis">intelligent</span> and 
-          <span class="emphasis">user-friendly applications</span>.  
-          I am a curious learner, always eager to explore new technologies and 
-          challenges that push my boundaries.
-        </p>
-        <h3 class="skills-heading">🛠️ Skills</h3>
-        <ul class="skills-list">
-          <li>PHP Laravel</li>
-          <li>MySQL</li>
-          <li>HTML & CSS</li>
-          <li>Java</li>
-          <li>Python</li>
-          <li>MongoDB</li>
-          <li>MERN Stack</li>
-        </ul>
-        <p><strong>Phone:</strong> 0741197465</p>
-        <p><strong>Email:</strong> hewagesavindi@gmail.com</p>
+        <div class="photo-col">
+          <div class="photo-frame">
+            <div class="photo-inner" id="photoInner">
+              <img src="photo.jpg" alt="Portrait of Savindi Hewage" id="photoImg" />
+              <div class="photo-fallback">SH</div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+      <div class="scroll-hint" aria-hidden="true"></div>
+    </section>
 
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <h2 class="section-title reveal">About me</h2>
+        <p class="section-lead reveal d1">A curious learner who enjoys the point where data, models and real products meet.</p>
 
-  <!-- Education Section -->
-  <section id="education" class="education section-light" data-aos="zoom-in">
-    <h2>Education</h2>
-    <div class="card-container">
-      <div class="card" data-aos="fade-up">
-        <h3>📘 O/L Results</h3>
-        <p>Successfully completed G.C.E. Ordinary Level examination with outstanding results.</p>
-        <ul>
-          <li>✔ 9As</li>
-        </ul>
-      </div>
-      <div class="card" data-aos="fade-up">
-        <h3>📚 A/L Results</h3>
-        <p>Completed G.C.E. Advanced Level in the Physical Science stream.</p>
-        <ul>
-          <li>✔ Results: A, B, C</li>
-          <li>✔ Stream: Physical Science</li>
-        </ul>
-      </div>
-      <div class="card" data-aos="fade-up">
-        <h3>🎓 Undergraduate</h3>
-        <p>Currently pursuing a B.Sc. in Data Science at Sabaragamuwa University of Sri Lanka.</p>
-        <ul>
-          <li>✔ Field: Data Science</li>
-          <li>✔ Year: Second Year</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              I'm a <mark>Data Science undergraduate</mark> from Matara, studying at
+              <mark>Sabaragamuwa University of Sri Lanka</mark>. My core interests are
+              <mark>Machine Learning</mark> and <mark>web development</mark>, and I like projects where both come together.
+            </p>
+            <p>
+              I enjoy <mark>transforming complex data into actionable insights</mark> and building
+              interactive digital experiences people actually want to use. I've already built full-stack
+              applications with Laravel and the MERN stack, and I'm now deepening my skills in data analysis and ML.
+            </p>
+            <p>
+              Outside the classroom I play netball and work as an announcer, which has made me a
+              <mark>confident communicator</mark> and a dependable team player.
+            </p>
+          </div>
 
-  <!-- Extra-Curricular Section -->
-  <section id="extra" class="extra section-dark" data-aos="fade-left">
-    <h2>Extra-Curricular</h2>
-    <div class="card-container">
-      <div class="card" data-aos="flip-left">
-        <h3>🏐 Netball Player</h3>
-        <p>I actively play netball, which has taught me teamwork, discipline, and leadership skills.</p>
-      </div>
-      <div class="card" data-aos="flip-right">
-        <h3>🎤 Announcer</h3>
-        <p>As an announcer, I’ve built confidence in public speaking and presentation.</p>
-      </div>
-    </div>
-  </section>
+          <aside class="facts reveal d2">
+            <h3>At a glance</h3>
+            <ul>
+              <li><small>Studying</small><span>B.Sc. in Data Science, Year 2</span></li>
+              <li><small>University</small><span>Sabaragamuwa University of Sri Lanka</span></li>
+              <li><small>Based in</small><span>Matara, Sri Lanka</span></li>
+              <li><small>Open to</small><span>Internships and entry-level roles</span></li>
+            </ul>
+          </aside>
+        </div>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects section-light" data-aos="fade-up">
-    <h2>Projects</h2>
-    <div class="card-container">
-      <div class="card" data-aos="zoom-in">
-        <h3>💼 JobSky</h3>
-        <p>A job portal web app built with HTML, CSS, PHP Laravel, and MySQL.</p>
-        <ul>
-          <li>✔ Search jobs easily</li>
-          <li>✔ Add, manage & delete jobs</li>
-          <li>✔ User-friendly interface</li>
-        </ul>
-        <a href="https://github.com/Savindi2002" target="_blank">View Project</a>
+        <h3 class="section-title reveal" style="font-size:1.6rem;margin-top:64px">Roles I'm working towards</h3>
+        <div class="roles" style="margin-top:22px">
+          <article class="role-card reveal">
+            <div class="ico">📊</div>
+            <h3>Data Scientist</h3>
+            <p>Exploring data, finding patterns and turning them into evidence that supports decisions.</p>
+          </article>
+          <article class="role-card reveal d1">
+            <div class="ico">🧠</div>
+            <h3>ML / AI Engineer</h3>
+            <p>Building, training and shipping models inside applications that people can use.</p>
+          </article>
+          <article class="role-card reveal d2">
+            <div class="ico">📈</div>
+            <h3>Business Analyst</h3>
+            <p>Translating business questions into data questions and explaining results in plain language.</p>
+          </article>
+        </div>
       </div>
-      <div class="card" data-aos="zoom-in">
-        <h3>🛍️ E-commerce Website</h3>
-        <p>An online store for makeup products built with the MERN stack.</p>
-        <ul>
-          <li>✔ Product listings</li>
-          <li>✔ Shopping cart & checkout</li>
-          <li>✔ Secure authentication</li>
-        </ul>
-        <a href="https://github.com/Savindi2002" target="_blank">View Project</a>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <h2 class="section-title reveal">Skills</h2>
+        <p class="section-lead reveal d1">The tools I use to build, store and analyse.</p>
+
+        <div class="skill-groups">
+          <div class="skill-group reveal">
+            <h3>Data &amp; Machine Learning</h3>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Data Analysis</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">MongoDB</span>
+            </div>
+          </div>
+          <div class="skill-group reveal d1">
+            <h3>Web &amp; Full-Stack</h3>
+            <div class="chips">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">PHP Laravel</span>
+              <span class="chip">MERN Stack</span>
+              <span class="chip">Ballerina</span>
+            </div>
+          </div>
+          <div class="skill-group reveal d2">
+            <h3>Programming &amp; Strengths</h3>
+            <div class="chips">
+              <span class="chip">Java</span>
+              <span class="chip">Teamwork</span>
+              <span class="chip">Public speaking</span>
+              <span class="chip">Quick learner</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card" data-aos="zoom-in">
-        <h3>📖 Pocket Dictionary</h3>
-        <p>A dictionary website created with HTML, CSS, Ballerina, and MySQL.</p>
-        <ul>
-          <li>✔ Word search</li>
-          <li>✔ Synonyms & definitions</li>
-          <li>✔ Team collaboration</li>
-        </ul>
-        <a href="https://github.com/Savindi2002" target="_blank">View Project</a>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <h2 class="section-title reveal">Projects</h2>
+        <p class="section-lead reveal d1">Applications I've designed and built, from database to interface.</p>
+
+        <div class="projects">
+          <article class="project reveal">
+            <div class="ico">💼</div>
+            <h3>JobSky</h3>
+            <p>A job portal web application where people can find and manage job listings.</p>
+            <ul>
+              <li>Search jobs easily</li>
+              <li>Add, manage and delete jobs</li>
+              <li>User-friendly interface</li>
+            </ul>
+            <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">PHP Laravel</span><span class="chip">MySQL</span></div>
+            <a class="link" href="https://github.com/Savindi2002" target="_blank" rel="noopener">View on GitHub</a>
+          </article>
+
+          <article class="project reveal d1">
+            <div class="ico">🛍️</div>
+            <h3>Makeup E-commerce Store</h3>
+            <p>An online store for makeup products built end to end with the MERN stack.</p>
+            <ul>
+              <li>Product listings</li>
+              <li>Shopping cart and checkout</li>
+              <li>Secure authentication</li>
+            </ul>
+            <div class="chips"><span class="chip">MongoDB</span><span class="chip">Express</span><span class="chip">React</span><span class="chip">Node.js</span></div>
+            <a class="link" href="https://github.com/Savindi2002" target="_blank" rel="noopener">View on GitHub</a>
+          </article>
+
+          <article class="project reveal d2">
+            <div class="ico">📖</div>
+            <h3>Pocket Dictionary</h3>
+            <p>A dictionary website built as a team project.</p>
+            <ul>
+              <li>Word search</li>
+              <li>Synonyms and definitions</li>
+              <li>Team collaboration</li>
+            </ul>
+            <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Ballerina</span><span class="chip">MySQL</span></div>
+            <a class="link" href="https://github.com/Savindi2002" target="_blank" rel="noopener">View on GitHub</a>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <<section id="contact" class="contact section-dark" data-aos="fade-right">
-    <h2>Contact Me</h2>
-    <p><strong>Phone:</strong> 0741197465</p>
-    <p><strong>Email:</strong> hewagesavindi@gmail.com</p>
-    <p><strong>LinkedIn:</strong> 
-        <a href="https://www.linkedin.com/in/savindi-hewage-506790326" target="_blank">My LinkedIn</a>
-    </p>
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="wrap">
+        <h2 class="section-title reveal">Education</h2>
+        <p class="section-lead reveal d1">From Physical Science to Data Science.</p>
 
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-</section>
->
+        <div class="timeline">
+          <div class="t-item now reveal">
+            <h3>B.Sc. in Data Science</h3>
+            <p class="where">Sabaragamuwa University of Sri Lanka · Currently in second year</p>
+            <p>Studying data science with a focus on machine learning, analysis and software development.</p>
+          </div>
+          <div class="t-item reveal d1">
+            <h3>G.C.E. Advanced Level</h3>
+            <p class="where">Physical Science stream</p>
+            <p>Results: A, B, C.</p>
+          </div>
+          <div class="t-item reveal d2">
+            <h3>G.C.E. Ordinary Level</h3>
+            <p class="where">Outstanding results</p>
+            <p>Nine A passes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Savindi Hewage | Portfolio</p>
-  </footer>
+    <!-- BEYOND ACADEMICS -->
+    <section id="beyond">
+      <div class="wrap">
+        <h2 class="section-title reveal">Beyond academics</h2>
+        <p class="section-lead reveal d1">The activities that shaped how I work with people.</p>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1200, once: true });
-  </script>
+        <div class="beyond">
+          <article class="card reveal">
+            <div class="ico">🏐</div>
+            <h3>Netball player</h3>
+            <p>Netball has taught me teamwork, discipline and leadership under pressure.</p>
+          </article>
+          <article class="card reveal d1">
+            <div class="ico">🎤</div>
+            <h3>Announcer</h3>
+            <p>Announcing built my confidence in public speaking and in presenting ideas clearly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <h2 class="section-title reveal">Let's work together</h2>
+        <p class="section-lead reveal d1">I'm open to internships and entry-level roles in data science, ML/AI and business analysis.</p>
+
+        <div class="contact-grid">
+          <ul class="contact-list reveal">
+            <li><a href="mailto:hewagesavindi@gmail.com"><span class="ico">✉️</span><span><small>Email</small>hewagesavindi@gmail.com</span></a></li>
+            <li><a href="https://www.linkedin.com/in/savindi-hewage-506790326" target="_blank" rel="noopener"><span class="ico">💼</span><span><small>LinkedIn</small>Savindi Hewage</span></a></li>
+            <li><a href="https://github.com/Savindi2002" target="_blank" rel="noopener"><span class="ico">💻</span><span><small>GitHub</small>Savindi2002</span></a></li>
+          </ul>
+
+          <form id="contactForm" class="reveal d1">
+            <label>Your name<input type="text" name="name" required autocomplete="name"></label>
+            <label>Your email<input type="email" name="email" required autocomplete="email"></label>
+            <label>Message<textarea name="message" rows="5" required></textarea></label>
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p class="form-note">This opens your email app with the message ready to send.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year">2026</span> Savindi Hewage. Built with HTML, CSS and JavaScript.</footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
