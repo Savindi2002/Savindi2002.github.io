@@ -124,6 +124,23 @@
     if (!reduceMotion) draw();
   }
 
+  // Load the user's supplied gallery images even when their file extensions differ.
+  const galleryExtensions = [".jpg", ".jpeg", ".png", ".webp", ".JPG", ".JPEG", ".PNG", ".WEBP"];
+  document.querySelectorAll("img[data-image-base]").forEach(img => {
+    const base = img.dataset.imageBase;
+    let index = 0;
+    const tryNext = () => {
+      if (index >= galleryExtensions.length) {
+        const figure = img.closest(".gallery-slot");
+        if (figure) figure.remove();
+        return;
+      }
+      img.src = base + galleryExtensions[index++];
+    };
+    img.addEventListener("error", tryNext);
+    tryNext();
+  });
+
   const form = document.getElementById("contactForm");
   if (form) form.addEventListener("submit", event => {
     event.preventDefault();

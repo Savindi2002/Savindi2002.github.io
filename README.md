@@ -57,3 +57,16 @@ git switch main
 ```
 
 If your default branch is named `master`, use `git switch master` instead. Do not delete the original branch.
+
+
+## Your photo filenames
+
+Place these files in the folders below. The site automatically tries `.jpg`, `.jpeg`, `.png`, and `.webp` extensions (uppercase extensions are supported too).
+
+- `assets/announcing/announcing`
+- `assets/announcing/anora`
+- `assets/announcing/himidiriya`
+- `assets/announcing/wie photo`
+- `assets/awards/award photo`
+
+Keep the spaces in `wie photo` and `award photo` if those are the names of your files. The professional portrait remains in the project root as `savindi professional photo.png`.
