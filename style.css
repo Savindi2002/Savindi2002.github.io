@@ -295,3 +295,149 @@ footer{border-top-color:#393326}.footer-inner>a:last-child{color:#ffd95a}
 @media (prefers-reduced-motion: reduce) {
   .portrait-frame { animation: none !important; }
 }
+
+/* ===== HOME SECTION: PROFESSIONAL ALIGNMENT FIX ===== */
+
+.hero {
+    min-height: 720px;
+    padding: 125px 0 90px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 55px;
+    width: 100%;
+}
+
+.hero-copy {
+    max-width: 620px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-copy h1 {
+    line-height: 1.08;
+    margin-bottom: 18px;
+}
+
+.hero-copy p {
+    line-height: 1.8;
+    max-width: 580px;
+}
+
+.portrait-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    min-height: 390px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.portrait-orbit {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.portrait-frame {
+    position: relative;
+    z-index: 2;
+    width: 290px;
+    height: 290px;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.portrait-frame img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: 50%;
+}
+
+.portrait-tag {
+    position: relative;
+    z-index: 3;
+    margin-top: 22px;
+    text-align: center;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr 0.85fr;
+        gap: 25px;
+    }
+
+    .portrait-frame {
+        width: 240px;
+        height: 240px;
+    }
+
+    .portrait-orbit {
+        width: 275px;
+        height: 275px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .hero {
+        min-height: auto;
+        padding: 110px 0 65px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        text-align: center;
+    }
+
+    .portrait-wrap {
+        order: -1;
+        min-height: auto;
+        padding: 15px 0 10px;
+    }
+
+    .portrait-frame {
+        width: min(250px, 68vw);
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .portrait-orbit {
+        width: min(280px, 75vw);
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .hero-copy {
+        margin: 0 auto;
+    }
+
+    .hero-copy p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
