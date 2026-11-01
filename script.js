@@ -1,167 +1,138 @@
-(function () {
+(() => {
   "use strict";
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
-  /* ---------- footer year ---------- */
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const progress = document.getElementById("progress");
+  const updateProgress = () => {
+    const root = document.documentElement;
+    const max = root.scrollHeight - root.clientHeight;
+    if (progress) progress.style.width = `${max > 0 ? (root.scrollTop / max) * 100 : 0}%`;
+  };
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  updateProgress();
 
-  /* ---------- photo fallback if photo.jpg is missing ---------- */
-  var img = document.getElementById("photoImg");
-  var inner = document.getElementById("photoInner");
-  img.addEventListener("error", function () { inner.classList.add("no-photo"); });
-
-  /* ---------- scroll progress bar ---------- */
-  var bar = document.getElementById("progress");
-  function onScroll() {
-    var h = document.documentElement;
-    var max = h.scrollHeight - h.clientHeight;
-    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  /* ---------- mobile menu ---------- */
-  var menuBtn = document.getElementById("menuBtn");
-  var nav = document.getElementById("nav");
-  menuBtn.addEventListener("click", function () {
-    var open = nav.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", open);
-  });
-  nav.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") {
-      nav.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
-    }
-  });
-
-  /* ---------- reveal on scroll (also triggers mark highlights) ---------- */
-  var revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && !reduce) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.classList.add("in");
-          io.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.18 });
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add("in"); });
-  }
-
-  /* ---------- active nav link ---------- */
-  var links = document.querySelectorAll(".nav a");
-  var sections = Array.prototype.map.call(links, function (a) {
-    return document.querySelector(a.getAttribute("href"));
-  });
-  if ("IntersectionObserver" in window) {
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          links.forEach(function (a) {
-            a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id);
-          });
-        }
-      });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    sections.forEach(function (s) { if (s) spy.observe(s); });
-  }
-
-  /* ---------- typing effect ---------- */
-  var typed = document.getElementById("typed");
-  var words = ["Data Scientist", "ML & AI Engineer", "Business Analyst"];
-  if (reduce) {
-    typed.textContent = words.join(" · ");
-  } else {
-    var w = 0, c = 0, deleting = false;
-    (function tick() {
-      var word = words[w];
-      typed.textContent = word.slice(0, c);
-      var delay = deleting ? 45 : 90;
-      if (!deleting && c === word.length) { deleting = true; delay = 1600; }
-      else if (deleting && c === 0) { deleting = false; w = (w + 1) % words.length; delay = 350; }
-      else { c += deleting ? -1 : 1; }
-      setTimeout(tick, delay);
-    })();
-  }
-
-  /* ---------- hero: interactive data-network canvas ---------- */
-  var canvas = document.getElementById("network");
-  var ctx = canvas.getContext("2d");
-  var nodes = [], W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var mouse = { x: -9999, y: -9999 };
-  var running = true;
-
-  function resize() {
-    var r = canvas.getBoundingClientRect();
-    W = r.width; H = r.height;
-    canvas.width = W * dpr; canvas.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var count = Math.max(28, Math.min(80, Math.floor((W * H) / 20000)));
-    nodes = [];
-    for (var i = 0; i < count; i++) {
-      nodes.push({
-        x: Math.random() * W, y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
-        r: Math.random() * 1.6 + 0.8, t: Math.random() < 0.5 ? 0 : 1
-      });
-    }
-  }
-
-  function draw() {
-    if (!running) return;
-    ctx.clearRect(0, 0, W, H);
-    var maxD = 140;
-    for (var i = 0; i < nodes.length; i++) {
-      var a = nodes[i];
-      if (!reduce) {
-        a.x += a.vx; a.y += a.vy;
-        if (a.x < 0 || a.x > W) a.vx *= -1;
-        if (a.y < 0 || a.y > H) a.vy *= -1;
-        var mx = mouse.x - a.x, my = mouse.y - a.y, md = Math.sqrt(mx * mx + my * my);
-        if (md < 160) { a.x += mx * 0.004; a.y += my * 0.004; }
+  const menuButton = document.getElementById("menuBtn");
+  const nav = document.getElementById("nav");
+  if (menuButton && nav) {
+    menuButton.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+    nav.addEventListener("click", event => {
+      if (event.target.closest("a")) {
+        nav.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation");
+        menuButton.textContent = "☰";
       }
-      for (var j = i + 1; j < nodes.length; j++) {
-        var b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.sqrt(dx * dx + dy * dy);
-        if (d < maxD) {
-          ctx.strokeStyle = "rgba(131,146,255," + (0.22 * (1 - d / maxD)).toFixed(3) + ")";
-          ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+    });
+  }
+
+  const revealItems = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          observer.unobserve(entry.target);
         }
-      }
-      ctx.fillStyle = a.t ? "rgba(79,216,196,0.85)" : "rgba(131,146,255,0.85)";
-      ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
-    }
-    requestAnimationFrame(draw);
-  }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach(item => observer.observe(item));
+  } else revealItems.forEach(item => item.classList.add("in"));
 
-  resize();
-  window.addEventListener("resize", resize);
-  var hero = document.getElementById("home");
-  hero.addEventListener("mousemove", function (e) {
-    var r = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
-  });
-  hero.addEventListener("mouseleave", function () { mouse.x = mouse.y = -9999; });
-
-  // pause drawing when the hero is off-screen
+  const navLinks = [...document.querySelectorAll(".nav a")];
+  const observedSections = navLinks.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
   if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function (entries) {
-      var visible = entries[0].isIntersecting;
-      if (visible && !running) { running = true; draw(); }
-      running = visible;
-    }).observe(hero);
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) navLinks.forEach(link => link.classList.toggle("active", link.hash === `#${entry.target.id}`));
+      });
+    }, { rootMargin: "-38% 0px -55% 0px" });
+    observedSections.forEach(section => sectionObserver.observe(section));
   }
-  draw();
 
-  /* ---------- contact form: opens the visitor's email app ---------- */
-  document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    var f = e.target;
-    var subject = "Portfolio message from " + f.name.value;
-    var body = f.message.value + "\n\n— " + f.name.value + " (" + f.email.value + ")";
-    window.location.href = "mailto:hewagesavindi@gmail.com?subject=" +
-      encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  const typed = document.getElementById("typed");
+  const roles = ["Machine Learning & AI", "Data Analytics", "Business Analysis", "NLP & Intelligent Systems"];
+  if (typed) {
+    if (reduceMotion) typed.textContent = roles.join(" · ");
+    else {
+      let roleIndex = 0, charIndex = 0, deleting = false;
+      const type = () => {
+        const word = roles[roleIndex];
+        typed.textContent = word.slice(0, charIndex);
+        let delay = deleting ? 35 : 65;
+        if (!deleting && charIndex === word.length) { deleting = true; delay = 1500; }
+        else if (deleting && charIndex === 0) { deleting = false; roleIndex = (roleIndex + 1) % roles.length; delay = 350; }
+        else charIndex += deleting ? -1 : 1;
+        window.setTimeout(type, delay);
+      };
+      type();
+    }
+  }
+
+  const canvas = document.getElementById("network");
+  if (canvas && canvas.getContext) {
+    const ctx = canvas.getContext("2d");
+    let width = 0, height = 0, nodes = [], frame = 0, visible = true;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      width = rect.width; height = rect.height;
+      canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.max(24, Math.min(65, Math.floor(width * height / 21000)));
+      nodes = Array.from({ length: count }, () => ({
+        x: Math.random() * width, y: Math.random() * height,
+        vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25
+      }));
+    };
+    const draw = () => {
+      if (!visible || reduceMotion) return;
+      ctx.clearRect(0, 0, width, height);
+      nodes.forEach((node, i) => {
+        node.x += node.vx; node.y += node.vy;
+        if (node.x < 0 || node.x > width) node.vx *= -1;
+        if (node.y < 0 || node.y > height) node.vy *= -1;
+        for (let j = i + 1; j < nodes.length; j++) {
+          const other = nodes[j], dx = node.x - other.x, dy = node.y - other.y;
+          const distance = Math.hypot(dx, dy);
+          if (distance < 135) {
+            ctx.strokeStyle = `rgba(111,157,255,${.17 * (1 - distance / 135)})`;
+            ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(node.x, node.y); ctx.lineTo(other.x, other.y); ctx.stroke();
+          }
+        }
+        ctx.fillStyle = "rgba(85,214,194,.7)";
+        ctx.beginPath(); ctx.arc(node.x, node.y, 1.7, 0, Math.PI * 2); ctx.fill();
+      });
+      frame = requestAnimationFrame(draw);
+    };
+    resize();
+    window.addEventListener("resize", resize);
+    if ("IntersectionObserver" in window) {
+      const heroObserver = new IntersectionObserver(entries => {
+        visible = entries[0].isIntersecting;
+        if (visible && !reduceMotion && !frame) draw();
+        if (!visible && frame) { cancelAnimationFrame(frame); frame = 0; }
+      });
+      heroObserver.observe(document.getElementById("home"));
+    }
+    if (!reduceMotion) draw();
+  }
+
+  const form = document.getElementById("contactForm");
+  if (form) form.addEventListener("submit", event => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
+    const subject = `Portfolio message from ${name}`;
+    const body = `${message}\n\n— ${name} (${email})`;
+    window.location.href = `mailto:hewagesavindi@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 })();
