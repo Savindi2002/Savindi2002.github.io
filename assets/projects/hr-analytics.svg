@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" role="img" aria-label="A workforce dashboard with employee profiles and metrics.">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101923"/><stop offset="1" stop-color="#080b10"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#a77b24" stop-opacity=".3"/><stop offset="1" stop-color="#a77b24" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="500" height="320" rx="22" fill="url(#bg)"/>
+<circle cx="250" cy="155" r="190" fill="url(#glow)"/>
+<g opacity=".16" stroke="#d8aa3d" stroke-width="1"><path d="M0 80H500M0 160H500M0 240H500M100 0V320M200 0V320M300 0V320M400 0V320"/></g>
+
+<g fill="#203447" stroke="#d3a33b" stroke-width="4"><circle cx="150" cy="105" r="35"/><circle cx="250" cy="90" r="35"/><circle cx="350" cy="105" r="35"/><path d="M90 245 Q95 155 150 155 Q205 155 210 245Z"/><path d="M190 245 Q195 140 250 140 Q305 140 310 245Z"/><path d="M290 245 Q295 155 350 155 Q405 155 410 245Z"/></g>
+<path d="M80 270 H420" stroke="#f4c64b" stroke-width="4"/>
+
+<rect x="10" y="10" width="480" height="300" rx="17" fill="none" stroke="#c99a35" stroke-opacity=".48" stroke-width="2"/>
+</svg>
