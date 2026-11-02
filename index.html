@@ -1,494 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Savindi Hewage | Data Science &amp; Machine Learning Portfolio</title>
-  <meta name="description" content="Portfolio of Savindi Hewage, a Data Science undergraduate at Sabaragamuwa University of Sri Lanka, aiming for data science, ML/AI engineering and business analyst roles." />
-  <meta name="theme-color" content="#0b1020" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Savindi Hewage — Data Science undergraduate focused on machine learning, analytics, NLP and business solutions.">
+  <meta name="theme-color" content="#081426">
+  <title>Savindi Hewage | Data Science & AI Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="progress" id="progress"></div>
-
-  <header class="site-header">
-    <a href="#home" class="logo">Savindi<span>.</span>H</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
-    <nav class="nav" id="nav">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-      <a href="#beyond">Beyond Academics</a>
-      <a href="#contact">Contact</a>
+  <header class="header">
+    <a class="brand" href="#home">SAVINDI HEWAGE<span>.</span></a>
+    <button class="menu-toggle" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav id="nav" class="nav" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+      <a href="#projects">Projects</a><a href="#education">Education</a><a href="#experience">Beyond academics</a>
+      <a href="#awards">Awards</a><a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="home" class="hero">
+    <section class="hero section" id="home">
       <canvas id="network" aria-hidden="true"></canvas>
-      <div class="wrap">
-        <div>
-          <p class="hello">Hello, I'm</p>
-          <h1>Savindi <span class="grad">Hewage</span></h1>
-          <p class="role-line">Aspiring <b id="typed"></b><span class="caret"></span></p>
-          <p class="hero-copy">
-            Second-year Data Science undergraduate at Sabaragamuwa University of Sri Lanka.
-            I turn raw data into clear insights and build intelligent, user-friendly applications.
-          </p>
-          <div class="cta-row">
-            <a href="#projects" class="btn btn-primary">View my projects</a>
-            <a href="#contact" class="btn btn-ghost">Contact me</a>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">DATA SCIENCE UNDERGRADUATE · SRI LANKA</p>
+          <p class="intro">Hello, I'm</p>
+          <h1>Savindi <span>Hewage</span></h1>
+          <p class="role">Interested in <strong id="typed">Machine Learning & AI</strong><i class="caret"></i></p>
+          <p class="summary">I build data-driven solutions by combining analytical thinking, machine learning and software development. I enjoy turning complex information into practical insights that help people and businesses make better decisions.</p>
+          <div class="actions">
+            <a class="button primary" href="#projects">Explore my work <span>↗</span></a>
+            <a class="button secondary" href="#contact">Let's connect</a>
+          </div>
+          <div class="social-mini">
+            <a href="https://www.linkedin.com/in/savindi-hewage/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/Savindi2002" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="mailto:hewagesavindi@gmail.com">Email ↗</a>
           </div>
         </div>
-
-        <div class="photo-col">
-          <div class="photo-frame">
-            <div class="photo-inner" id="photoInner">
-              <img src="savindi professional photo.png" alt="Portrait of Savindi Hewage" id="photoImg" />
-              <div class="photo-fallback">SH</div>
-            </div>
+        <div class="portrait-wrap reveal d1" aria-label="Profile portrait">
+          <div class="portrait-orbit"></div>
+          <div class="portrait-frame">
+            <img src="savindi professional photo.jpeg" alt="Portrait of Savindi Hewage" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <div class="portrait-fallback" hidden>SH</div>
           </div>
+          <div class="portrait-tag"><span></span> Curious mind. Practical solutions.</div>
         </div>
       </div>
-      <div class="scroll-hint" aria-hidden="true"></div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about section">↓</a>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="wrap">
-        <h2 class="section-title reveal">About me</h2>
-        <p class="section-lead reveal d1">A curious learner who enjoys the point where data, models and real products meet.</p>
-
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow">GET TO KNOW ME</p><h2>Turning curiosity into <span>impact.</span></h2><p class="section-intro">I bring together analytical thinking, a curiosity for technology and a genuine enthusiasm for working with people.</p></div>
         <div class="about-grid">
-          <div class="about-text reveal">
-            <p>
-              I'm a <mark>Data Science undergraduate</mark> from Matara, studying at
-              <mark>Sabaragamuwa University of Sri Lanka</mark>. My core interests are
-              <mark>Machine Learning</mark> and <mark>web development</mark>, and I like projects where both come together.
-            </p>
-            <p>
-              I enjoy <mark>transforming complex data into actionable insights</mark> and building
-              interactive digital experiences people actually want to use. I've already built full-stack
-              applications with Laravel and the MERN stack, and I'm now deepening my skills in data analysis and ML.
-            </p>
-            <p>
-              Outside the classroom I play netball and work as an announcer, which has made me a
-              <mark>confident communicator</mark> and a dependable team player.
-            </p>
+          <div class="prose reveal">
+            <p>I am an undergraduate pursuing a <strong>BSc (Hons) in Data Science</strong> at the <strong>Sabaragamuwa University of Sri Lanka</strong>. I am interested in using data and technology to understand real-world challenges and develop practical, evidence-informed solutions.</p>
+            <p>My academic and personal projects have given me experience exploring datasets, building machine-learning models, creating visualisations and developing data-driven applications. I enjoy learning how areas such as <strong>machine learning, natural language processing, data analytics and graph theory</strong> can be applied to meaningful problems.</p>
+            <p>Beyond technology, I am passionate about <strong>announcing, hosting and public speaking</strong>. Taking part in student societies, volunteering and coordinating events has helped me strengthen my communication, teamwork and leadership skills.</p>
+            <p>I am looking forward to opportunities where I can keep learning, contribute with curiosity and turn ideas into useful outcomes — particularly in <strong>Data Science, AI/ML and Business Analysis</strong>.</p>
           </div>
-
-          <aside class="facts reveal d2">
-            <h3>At a glance</h3>
-            <ul>
-              <li><small>Studying</small><span>B.Sc. in Data Science, Year 2</span></li>
-              <li><small>University</small><span>Sabaragamuwa University of Sri Lanka</span></li>
-              <li><small>Based in</small><span>Matara, Sri Lanka</span></li>
-              <li><small>Open to</small><span>Internships and entry-level roles</span></li>
-            </ul>
+          <aside class="profile-card reveal d1">
+            <p class="card-label">PROFILE SNAPSHOT</p>
+            <div class="fact"><span>Currently</span><strong>BSc (Hons) Data Science</strong></div>
+            <div class="fact"><span>University</span><strong>Sabaragamuwa University of Sri Lanka</strong></div>
+            <div class="fact"><span>Location</span><strong>Matara, Sri Lanka</strong></div>
+            <div class="fact"><span>Focus areas</span><strong>ML · NLP · Analytics · Business Analysis</strong></div>
+            <div class="fact"><span>Open to</span><strong>Internship opportunities</strong></div>
           </aside>
         </div>
-
-        <h3 class="section-title reveal" style="font-size:1.6rem;margin-top:64px">Roles I'm working towards</h3>
-        <div class="roles" style="margin-top:22px">
-          <article class="role-card reveal">
-            <div class="ico">📊</div>
-            <h3>Data Scientist</h3>
-            <p>Exploring data, finding patterns and turning them into evidence that supports decisions.</p>
-          </article>
-          <article class="role-card reveal d1">
-            <div class="ico">🧠</div>
-            <h3>ML / AI Engineer</h3>
-            <p>Building, training and shipping models inside applications that people can use.</p>
-          </article>
-          <article class="role-card reveal d2">
-            <div class="ico">📈</div>
-            <h3>Business Analyst</h3>
-            <p>Translating business questions into data questions and explaining results in plain language.</p>
-          </article>
-        </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="wrap">
-        <h2 class="section-title reveal">Skills</h2>
-        <p class="section-lead reveal d1">The tools I use to build, store and analyse.</p>
-
-        <div class="skill-groups">
-          <div class="skill-group reveal">
-            <h3>Data &amp; Machine Learning</h3>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Machine Learning</span>
-              <span class="chip">Data Analysis</span>
-              <span class="chip">MySQL</span>
-              <span class="chip">MongoDB</span>
-            </div>
-          </div>
-          <div class="skill-group reveal d1">
-            <h3>Web &amp; Full-Stack</h3>
-            <div class="chips">
-              <span class="chip">HTML</span>
-              <span class="chip">CSS</span>
-              <span class="chip">PHP Laravel</span>
-              <span class="chip">MERN Stack</span>
-              <span class="chip">Ballerina</span>
-            </div>
-          </div>
-          <div class="skill-group reveal d2">
-            <h3>Programming &amp; Strengths</h3>
-            <div class="chips">
-              <span class="chip">Java</span>
-              <span class="chip">Teamwork</span>
-              <span class="chip">Public speaking</span>
-              <span class="chip">Quick learner</span>
-            </div>
-          </div>
+    <section class="section alt" id="skills">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow">MY TOOLKIT</p><h2>Skills & <span>technologies.</span></h2><p class="section-intro">Technologies and strengths listed in my current CV.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card reveal"><div class="skill-icon">⌘</div><h3>Programming</h3><div class="chips"><span>Python</span><span>Java</span><span>PHP</span><span>JavaScript</span><span>SQL</span></div></article>
+          <article class="skill-card reveal d1"><div class="skill-icon">✳</div><h3>Machine Learning & AI</h3><div class="chips"><span>Scikit-learn</span><span>XGBoost</span><span>PyTorch</span><span>NLP</span></div></article>
+          <article class="skill-card reveal d2"><div class="skill-icon">▥</div><h3>Data Analysis & Visualization</h3><div class="chips"><span>NumPy</span><span>Pandas</span><span>Statsmodels</span><span>Power BI</span></div></article>
+          <article class="skill-card reveal"><div class="skill-icon">⌘</div><h3>Graph & Geospatial</h3><div class="chips"><span>NetworkX</span><span>GeoPandas</span></div></article>
+          <article class="skill-card reveal d1"><div class="skill-icon">◫</div><h3>Databases</h3><div class="chips"><span>MySQL</span><span>MongoDB</span></div></article>
+          <article class="skill-card reveal d2"><div class="skill-icon">⌁</div><h3>Web & Development Tools</h3><div class="chips"><span>HTML</span><span>CSS</span><span>React</span><span>Laravel</span><span>FastAPI</span><span>Streamlit</span><span>Git</span><span>GitHub</span><span>REST APIs</span></div></article>
         </div>
+        <div class="soft-skills reveal"><strong>Professional strengths</strong><span>Public Speaking & Presentation</span><span>Problem-Solving</span><span>Teamwork & Collaboration</span><span>Leadership</span></div>
+        <p class="language-note reveal"><strong>Languages:</strong> Sinhala (Native) · English (Intermediate) · Japanese (JLPT N5)</p>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="wrap">
-        <h2 class="section-title reveal">Projects &amp; Dashboards</h2>
-        <p class="section-lead reveal d1">
-          A selection of my work in data analytics, dashboards, machine learning,
-          AI, and application development.
-        </p>
-
-        <div class="projects">
-
-          <article class="project reveal">
-            <div class="ico">🌋</div>
-            <h3>LankaLandslide AI</h3>
-            <p>
-              An AI-focused landslide risk and monitoring project. Explore the repository
-              for its current features, implementation, and project documentation.
-            </p>
-            <div class="chips">
-              <span class="chip">AI</span>
-              <span class="chip">Machine Learning</span>
-              <span class="chip">Risk Analysis</span>
-              <span class="chip">Dashboard</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002?tab=repositories"
-               target="_blank" rel="noopener noreferrer">Find on GitHub ↗</a>
-          </article>
-
-          <article class="project reveal d1">
-            <div class="ico">🏥</div>
-            <h3>Hospital Emergency Room Dashboard</h3>
-            <p>
-              A healthcare analytics dashboard concept for exploring patient visits,
-              emergency room activity, trends, and operational performance.
-            </p>
-            <div class="chips">
-              <span class="chip">Power BI</span>
-              <span class="chip">Dashboards</span>
-              <span class="chip">KPIs</span>
-              <span class="chip">Healthcare Analytics</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002?tab=repositories"
-               target="_blank" rel="noopener noreferrer">Find on GitHub ↗</a>
-          </article>
-
-          <article class="project reveal d2">
-            <div class="ico">🧠</div>
-            <h3>CV Analyzer &amp; Job Matching</h3>
-            <p>
-              An NLP project that compares resumes with job descriptions, identifies
-              relevant skills, and highlights matching skills and potential skill gaps.
-            </p>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">NLP</span>
-              <span class="chip">Pandas</span>
-              <span class="chip">Scikit-learn</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002/CV-Analyzer-Job-Matching"
-               target="_blank" rel="noopener noreferrer">View Project ↗</a>
-          </article>
-
-          <article class="project reveal">
-            <div class="ico">🎬</div>
-            <h3>Netflix Data Analysis</h3>
-            <p>
-              An exploratory analysis of Netflix titles, examining content types,
-              release patterns, and other trends using data cleaning and visualization.
-            </p>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Pandas</span>
-              <span class="chip">EDA</span>
-              <span class="chip">Visualization</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002/Netflix-Data-Analysis"
-               target="_blank" rel="noopener noreferrer">View Project ↗</a>
-          </article>
-
-          <article class="project reveal d1">
-            <div class="ico">🧬</div>
-            <h3>Cancer Prediction &amp; Analysis</h3>
-            <p>
-              A data analysis and machine learning project exploring cancer-related data
-              and classification methods. Refer to the repository for the exact dataset
-              and evaluation details.
-            </p>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Data Analysis</span>
-              <span class="chip">Classification</span>
-              <span class="chip">Machine Learning</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002/Canser-Prediction-Analysis"
-               target="_blank" rel="noopener noreferrer">View Project ↗</a>
-          </article>
-
-          <article class="project reveal d2">
-            <div class="ico">🌍</div>
-            <h3>Life Expectancy Analysis</h3>
-            <p>
-              An analysis project exploring life expectancy trends and how health,
-              development, and socioeconomic indicators can relate to population outcomes.
-            </p>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Data Analysis</span>
-              <span class="chip">Visualization</span>
-              <span class="chip">Insights</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002?tab=repositories"
-               target="_blank" rel="noopener noreferrer">Find on GitHub ↗</a>
-          </article>
-
-          <article class="project reveal">
-            <div class="ico">📈</div>
-            <h3>Healthcare Risk Prediction</h3>
-            <p>
-              A machine learning analysis exploring healthcare risk factors and
-              classification approaches. See the repository for the exact target and model.
-            </p>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Pandas</span>
-              <span class="chip">Classification</span>
-              <span class="chip">Model Evaluation</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002?tab=repositories"
-               target="_blank" rel="noopener noreferrer">Find on GitHub ↗</a>
-          </article>
-
-          <article class="project reveal d1">
-            <div class="ico">⚡</div>
-            <h3>Electricity Demand Forecasting</h3>
-            <p>
-              A forecasting project focused on studying demand patterns and exploring
-              time-series or regression approaches to estimate future electricity demand.
-            </p>
-            <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Forecasting</span>
-              <span class="chip">Time Series</span>
-              <span class="chip">Analytics</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002?tab=repositories"
-               target="_blank" rel="noopener noreferrer">Find on GitHub ↗</a>
-          </article>
-
-          <article class="project reveal d2">
-            <div class="ico">👥</div>
-            <h3>Customer Churn Analysis</h3>
-            <p>
-              A customer analytics project focused on understanding churn patterns
-              and identifying insights that can support customer retention decisions.
-            </p>
-            <div class="chips">
-              <span class="chip">Data Analytics</span>
-              <span class="chip">Customer Insights</span>
-              <span class="chip">Data Visualization</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002?tab=repositories"
-               target="_blank" rel="noopener noreferrer">Find on GitHub ↗</a>
-          </article>
-
-          <article class="project reveal">
-            <div class="ico">🛍️</div>
-            <h3>Crysta Beauty E-commerce</h3>
-            <p>
-              An e-commerce application project for a beauty-focused store, showcasing
-              web development and online shopping experience design.
-            </p>
-            <div class="chips">
-              <span class="chip">Web Development</span>
-              <span class="chip">E-commerce</span>
-              <span class="chip">UI</span>
-              <span class="chip">Application Development</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002?tab=repositories"
-               target="_blank" rel="noopener noreferrer">Find on GitHub ↗</a>
-          </article>
-
-          <article class="project reveal d1">
-            <div class="ico">💻</div>
-            <h3>More Projects</h3>
-            <p>
-              Browse my GitHub profile for additional repositories, dashboards,
-              coursework, and new experiments as I continue developing my skills.
-            </p>
-            <div class="chips">
-              <span class="chip">SQL</span>
-              <span class="chip">Excel</span>
-              <span class="chip">Power BI</span>
-              <span class="chip">Python</span>
-              <span class="chip">AI &amp; ML</span>
-            </div>
-            <a class="link" href="https://github.com/Savindi2002?tab=repositories"
-               target="_blank" rel="noopener noreferrer">Explore All Repositories ↗</a>
-          </article>
-
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow">SELECTED WORK</p><h2>Projects & <span>dashboards.</span></h2><p class="section-intro">A selection of academic and independent work across AI, analytics, forecasting and application development.</p></div>
+        <div class="projects-grid">
+          <article class="project-card featured reveal"><img class="project-image" src="assets/projects/lankalandslide-ai.svg" alt="A terrain map with a highlighted landslide-risk zone and warning marker." loading="lazy"><div class="project-content"><div class="project-top"><span class="project-number">01 / AI & GEO-SPATIAL</span><span class="project-symbol">⌁</span></div><h3>LankaLandslide AI</h3><p>Built an end-to-end machine learning system to predict district-level landslide risk in Sri Lanka using historical landslide records, rainfall, weather and terrain features. The solution uses an XGBoost model with a FastAPI backend and interactive Streamlit interface.</p><div class="chips"><span>Python</span><span>XGBoost</span><span>Scikit-learn</span><span>Geo Data</span><span>FastAPI</span><span>Streamlit</span></div><a class="project-link" href="https://github.com/Savindi2002?tab=repositories" target="_blank" rel="noopener noreferrer">Explore on GitHub ↗</a></div></article>
+          <article class="project-card reveal d1"><img class="project-image" src="assets/projects/landsafe.svg" alt="A connected road network winding through a mountainous landscape." loading="lazy"><div class="project-content"><div class="project-top"><span class="project-number">02 / GRAPH THEORY</span><span class="project-symbol">◉</span></div><h3>LANDSAFE</h3><p>Developed a graph-based decision-support system to identify landslide-vulnerable roads and prioritize protection under budget constraints. Evaluated network connectivity and hospital accessibility under simulated road failures.</p><div class="chips"><span>Python</span><span>Graph Theory</span><span>NetworkX</span><span>GeoPandas</span><span>Optimization</span></div><a class="project-link" href="https://github.com/Savindi2002?tab=repositories" target="_blank" rel="noopener noreferrer">Explore on GitHub ↗</a></div></article>
+          <article class="project-card reveal"><img class="project-image" src="assets/projects/cv-analyzer.svg" alt="A resume document with AI matching and skill indicators." loading="lazy"><div class="project-content"><div class="project-top"><span class="project-number">03 / NLP</span><span class="project-symbol">✳</span></div><h3>AI-Powered CV Analyzer & Job Matching</h3><p>Created an NLP system to classify CVs, match candidates to job descriptions and identify skill gaps using TF-IDF, SVM and transformer embeddings. Achieved 70.6% classification accuracy.</p><div class="chips"><span>Python</span><span>NLP</span><span>TF-IDF</span><span>Sentence Transformers</span><span>SVM</span></div><a class="project-link" href="https://github.com/Savindi2002/CV-Analyzer-Job-Matching" target="_blank" rel="noopener noreferrer">View project ↗</a></div></article>
+          <article class="project-card reveal d1"><img class="project-image" src="assets/projects/customer-churn.svg" alt="A customer analytics dashboard with a predictive trend chart." loading="lazy"><div class="project-content"><div class="project-top"><span class="project-number">04 / CLOUD & ANALYTICS</span><span class="project-symbol">⌘</span></div><h3>AWS Customer Churn Prediction</h3><p>Collaborated on an AWS-based machine learning project to analyze telecom customer churn, automate data validation, compare predictive models and generate SQL-driven business insights.</p><div class="chips"><span>Python</span><span>AWS</span><span>SQL</span><span>Machine Learning</span></div><a class="project-link" href="https://github.com/Savindi2002?tab=repositories" target="_blank" rel="noopener noreferrer">Explore repositories ↗</a></div></article>
+          <article class="project-card reveal"><img class="project-image" src="assets/projects/electricity-forecasting.svg" alt="Power transmission towers and a time-series demand curve." loading="lazy"><div class="project-content"><div class="project-top"><span class="project-number">05 / FORECASTING</span><span class="project-symbol">⌁</span></div><h3>Electricity Demand Analysis & Forecasting</h3><p>Analysed electricity demand and weather relationships using exploratory analysis, regression, statistical testing, ARIMA and SARIMA. Evaluated model performance using RMSE and AIC.</p><div class="chips"><span>Python</span><span>Pandas</span><span>Statsmodels</span><span>ARIMA</span><span>SARIMA</span></div><a class="project-link" href="https://github.com/Savindi2002?tab=repositories" target="_blank" rel="noopener noreferrer">Explore repositories ↗</a></div></article>
+          <article class="project-card reveal d1"><img class="project-image" src="assets/projects/netflix-analysis.svg" alt="A streaming screen with content tiles and recommendation analytics." loading="lazy"><div class="project-content"><div class="project-top"><span class="project-number">06 / DATA SCIENCE</span><span class="project-symbol">▤</span></div><h3>Netflix Data Analysis & ML</h3><p>Explored 8,807 Netflix titles to identify content and genre trends; applied sentiment analysis, K-Means clustering and Logistic Regression, achieving 70% accuracy in predicting Movie vs TV Show.</p><div class="chips"><span>Python</span><span>Pandas</span><span>NLP</span><span>K-Means</span><span>Visualization</span></div><a class="project-link" href="https://github.com/Savindi2002/Netflix-Data-Analysis" target="_blank" rel="noopener noreferrer">View project ↗</a></div></article>
+          <article class="project-card reveal"><img class="project-image" src="assets/projects/emergency-care.svg" alt="A hospital building with healthcare analytics indicators." loading="lazy"><div class="project-content"><div class="project-top"><span class="project-number">07 / POWER BI</span><span class="project-symbol">▥</span></div><h3>Emergency Care Analytics Dashboard</h3><p>Built an interactive Power BI dashboard using 9,216 patient records to explore ER performance, demographics, waiting times, satisfaction, admissions and departmental workload.</p><div class="chips"><span>Power BI</span><span>Healthcare Analytics</span><span>KPIs</span></div><a class="project-link" href="https://github.com/Savindi2002?tab=repositories" target="_blank" rel="noopener noreferrer">Explore repositories ↗</a></div></article>
+          <article class="project-card reveal d1"><img class="project-image" src="assets/projects/hr-analytics.svg" alt="A workforce dashboard with employee profiles and metrics." loading="lazy"><div class="project-content"><div class="project-top"><span class="project-number">08 / POWER BI</span><span class="project-symbol">▥</span></div><h3>HR Analytics Dashboard</h3><p>Developed an interactive dashboard exploring employee attrition, demographics, performance, salary trends, job satisfaction and departmental distribution to support data-informed HR decisions.</p><div class="chips"><span>Power BI</span><span>HR Analytics</span><span>Data Visualization</span></div><a class="project-link" href="https://github.com/Savindi2002?tab=repositories" target="_blank" rel="noopener noreferrer">Explore repositories ↗</a></div></article>
+          <article class="project-card reveal"><img class="project-image" src="assets/projects/job-sky.svg" alt="A laptop displaying a job search and application interface." loading="lazy"><div class="project-content"><div class="project-top"><span class="project-number">09 / WEB APPLICATION</span><span class="project-symbol">⌘</span></div><h3>Job Sky — Job Portal</h3><p>Developed a full-stack job portal with job search, online applications, job posting, category management and application tracking, including separate user and admin dashboards.</p><div class="chips"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>HTML</span><span>CSS</span><span>Bootstrap</span></div><a class="project-link" href="https://github.com/Savindi2002?tab=repositories" target="_blank" rel="noopener noreferrer">Explore repositories ↗</a></div></article>
         </div>
+        <div class="center-action"><a class="button secondary" href="https://github.com/Savindi2002?tab=repositories" target="_blank" rel="noopener noreferrer">See all GitHub repositories ↗</a></div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section id="education">
-      <div class="wrap">
-        <h2 class="section-title reveal">Education</h2>
-        <p class="section-lead reveal d1">From Physical Science to Data Science.</p>
-
+    <section class="section alt" id="education">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow">MY JOURNEY</p><h2>Education & <span>qualifications.</span></h2></div>
         <div class="timeline">
-          <div class="t-item now reveal">
-            <h3>B.Sc. in Data Science</h3>
-            <p class="where">Sabaragamuwa University of Sri Lanka · Currently in second year</p>
-            <p>Studying data science with a focus on machine learning, analysis and software development.</p>
-          </div>
-          <div class="t-item reveal d1">
-            <h3>G.C.E. Advanced Level</h3>
-            <p class="where">Physical Science stream</p>
-            <p>Results: A, B, C.</p>
-          </div>
-          <div class="t-item reveal d2">
-            <h3>G.C.E. Ordinary Level</h3>
-            <p class="where">Outstanding results</p>
-            <p>Nine A passes.</p>
-          </div>
+          <article class="timeline-item current reveal"><span class="timeline-date">2024 — PRESENT</span><h3>BSc (Hons) in Data Science</h3><p class="institution">Sabaragamuwa University of Sri Lanka</p><p>CGPA: 3.17 . Coursework includes machine learning, artificial intelligence, data analytics and software engineering, applied through academic and independent projects.</p></article>
+          <article class="timeline-item reveal d1"><span class="timeline-date">2024 — 2025</span><h3>Advanced Diploma in English</h3><p class="institution">The Beeline Campus</p></article>
+          <article class="timeline-item reveal d2"><span class="timeline-date">2022</span><h3>G.C.E. Advanced Level — Physical Science</h3><p class="institution">Sujatha Vidyalaya, Matara</p><p>Z-score: 1.4020</p></article>
+          <article class="timeline-item reveal d2"><span class="timeline-date">2018</span><h3>G.C.E. Ordinary Level</h3><p>9A Passes</p></article>
+        </div>
+        <div class="certifications reveal"><h3>Certificates</h3><div class="certificate-list"><div><strong>Google AI Essentials Specialization</strong><span>Google · Coursera · 2025</span></div><div><strong>Python for Beginners</strong><span>Centre for Open and Distance Learning (CODL), University of Moratuwa · 2025</span></div></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow">BEYOND THE CLASSROOM</p><h2>Volunteering, leadership <span>& community.</span></h2><p class="section-intro">Learning through service, teamwork and taking responsibility in student communities.</p></div>
+        <div class="experience-grid">
+          <article class="experience-card reveal"><span class="experience-icon">✦</span><h3>Treasurer</h3><p class="institution">IEEE WIE Affinity Group, SUSL</p><p>Managed finances for the IEEE Women in Engineering Affinity Group.</p></article>
+          <article class="experience-card reveal d1"><span class="experience-icon">✦</span><h3>Program Team Leader & Host</h3><p class="institution">IEEE WIE Day 2026, SUSL</p><p>Led the programme team and hosted the event.</p></article>
+          <article class="experience-card reveal d2"><span class="experience-icon">✦</span><h3>Secretary Team Leader</h3><p class="institution">IEEE Day Celebration 2026, SUSL</p><p>Led the secretary team for the celebration.</p></article>
+          <article class="experience-card reveal"><span class="experience-icon">✦</span><h3>Finance Team Leader</h3><p class="institution">Blogathon · Computer Society / CS Chapter</p><p>Led the finance team for the event.</p></article>
+          <article class="experience-card reveal d1"><span class="experience-icon">✦</span><h3>STEM Volunteer / Educator</h3><p class="institution">STEMUP Educational Foundation</p><p>Supported STEM education activities and learning sessions for students.</p></article>
+          <article class="experience-card reveal d2"><span class="experience-icon">✦</span><h3>Volunteer</h3><p class="institution">Rotaract Club of Sabaragamuwa University of Sri Lanka</p><p>Contributed to club activities and initiatives.</p></article>
+          <article class="experience-card reveal"><span class="experience-icon">✦</span><h3>Member</h3><p class="institution">IEEE</p><p>Active member of the IEEE student community.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- BEYOND ACADEMICS -->
-    <section id="beyond">
-      <div class="wrap">
-        <h2 class="section-title reveal">Beyond academics</h2>
-        <p class="section-lead reveal d1">
-          The communities, leadership roles, volunteering, and events that help me
-          grow as a communicator, collaborator, and future professional.
-        </p>
+    <section class="section alt" id="speaking">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow">MY PASSION</p><h2>Announcing & <span>public speaking.</span></h2><p class="section-intro">I enjoy being on stage, connecting with an audience and bringing events to life. Hosting and announcing allow me to combine confidence, preparation and clear communication.</p></div>
+        <div class="photo-gallery speaking-gallery" aria-label="Announcing and public speaking photo gallery">
+          <figure class="gallery-slot reveal"><img data-image-base="assets/announcing/announcing" alt="Savindi announcing at an event"><figcaption>Himidiriya</figcaption></figure>
+          <figure class="gallery-slot reveal d1"><img data-image-base="assets/announcing/anora" alt="Savindi at Anora event"><figcaption>Anora</figcaption></figure>
+          <figure class="gallery-slot reveal d2"><img data-image-base="assets/announcing/himidiriya" alt="Savindi at Himidiriya event"><figcaption>Kiri Ithirawima</figcaption></figure>
+          <figure class="gallery-slot reveal d3"><img data-image-base="assets/announcing/wie photo" alt="Savindi at a WIE event"><figcaption>WIE event</figcaption></figure>
+        </div>
+        <!-- <p class="gallery-help">Your four event photos are loaded from <code>assets/announcing/</code>: announcing, anora, himidiriya and wie photo. JPG, JPEG, PNG and WEBP formats are supported.</p> -->
+      </div>
+    </section>
 
-        <div class="beyond">
-          <article class="card reveal">
-            <div class="ico">🤝</div>
-            <h3>Membership &amp; Volunteering</h3>
-            <p>
-              I stay involved in student and professional communities, contribute
-              to volunteer activities, and learn by working with people from
-              different backgrounds.
-            </p>
-            <div class="chips">
-              <span class="chip">IEEE Member</span>
-              <span class="chip">WIE Student Branch Affinity Group</span>
-              <span class="chip">STEMUP Volunteer</span>
-              <span class="chip">Rotaract</span>
-              <span class="chip">CS Chapter</span>
-              <span class="chip">Treasurer</span>
-            </div>
-          </article>
+    <section class="section" id="awards">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow">MILESTONES</p><h2>Awards & <span>achievements.</span></h2><p class="section-intro">Competition experiences that challenged me to think creatively, collaborate and keep improving.</p></div>
+        <div class="awards-list">
+          <article class="award reveal"><span class="award-rank">TOP 15</span><div><h3>Codemania V6.0</h3><p class="institution">SLTC Research University · Team Deadlock</p><p>Selected as a Top 15 finalist in an inter-university datathon, applying data-driven approaches to complex problems.</p></div></article>
+          <article class="award reveal d1"><span class="award-rank">FINALIST</span><div><h3>J’PuraXtreme 3.0</h3><p class="institution">University of Sri Jayewardenepura · Team Code Wave</p><p>Qualified for the final round of the competition.</p></div></article>
+          <article class="award reveal d2"><span class="award-rank">2ND PLACE</span><div><h3>Path Forward 3.0</h3><p class="institution">IEEE WIE SB AG, SUSL · Non-Technical Category</p><p>Placed second as part of the IEEE WIE International Leadership Summit 2026.</p></div></article>
+        </div>
 
-          <article class="card reveal d1">
-            <div class="ico">🌟</div>
-            <h3>Leadership &amp; Teamwork</h3>
-            <p>
-              Taking responsibility in teams has helped me strengthen my
-              coordination, planning, communication, and problem-solving skills.
-            </p>
-            <div class="chips">
-              <span class="chip">Project Team Lead</span>
-              <span class="chip">Secretary Team Lead</span>
-              <span class="chip">Finance Team Lead</span>
-              <span class="chip">Team Coordination</span>
-            </div>
-          </article>
-
-          <article class="card reveal d2">
-            <div class="ico">🎤</div>
-            <h3>Events &amp; Hosting</h3>
-            <p>
-              Supporting and hosting events has given me opportunities to
-              communicate confidently, work with event teams, and help deliver
-              engaging experiences for participants.
-            </p>
-            <div class="chips">
-              <span class="chip">Host — Aurelia 2.0</span>
-              <span class="chip">WIE Day 2026</span>
-              <span class="chip">IEEE Day 2026</span>
-              <span class="chip">Blogothon</span>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <div class="ico">🏐</div>
-            <h3>Sports &amp; Personal Growth</h3>
-            <p>
-              Playing netball has taught me discipline, teamwork, and how to
-              contribute to a shared goal while balancing academic and
-              extracurricular responsibilities.
-            </p>
-            <div class="chips">
-              <span class="chip">Netball</span>
-              <span class="chip">Teamwork</span>
-              <span class="chip">Discipline</span>
-            </div>
-          </article>
+        <h3 class="gallery-title reveal">Award moments</h3>
+        <div class="photo-gallery award-photo-gallery" aria-label="Award and achievement photographs">
+          <figure class="gallery-slot reveal">
+            <img data-image-base="assets/awards/award" alt="Award recognition photograph" loading="lazy">
+            <figcaption>Competition recognition</figcaption>
+          </figure>
+          <figure class="gallery-slot reveal d1">
+            <img data-image-base="assets/awards/wie group" alt="Team achievement photograph" loading="lazy">
+            <figcaption>Team achievement</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="wrap">
-        <h2 class="section-title reveal">Let's work together</h2>
-        <p class="section-lead reveal d1">I'm open to internships and entry-level roles in data science, ML/AI and business analysis.</p>
-
+    <section class="section alt" id="contact">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow">GET IN TOUCH</p><h2>Let's create something <span>meaningful.</span></h2><p class="section-intro">I’m open to internship opportunities, collaborations and conversations about data, AI and technology.</p></div>
         <div class="contact-grid">
-          <ul class="contact-list reveal">
-            <li><a href="mailto:hewagesavindi@gmail.com"><span class="ico">✉️</span><span><small>Email</small>hewagesavindi@gmail.com</span></a></li>
-            <li><a href="https://www.linkedin.com/in/savindi-hewage-506790326" target="_blank" rel="noopener"><span class="ico">💼</span><span><small>LinkedIn</small>Savindi Hewage</span></a></li>
-            <li><a href="https://github.com/Savindi2002" target="_blank" rel="noopener"><span class="ico">💻</span><span><small>GitHub</small>Savindi2002</span></a></li>
-          </ul>
-
-          <form id="contactForm" class="reveal d1">
-            <label>Your name<input type="text" name="name" required autocomplete="name"></label>
-            <label>Your email<input type="email" name="email" required autocomplete="email"></label>
-            <label>Message<textarea name="message" rows="5" required></textarea></label>
-            <button type="submit" class="btn btn-primary">Send message</button>
-            <p class="form-note">This opens your email app with the message ready to send.</p>
+          <div class="contact-details reveal">
+            <a class="contact-item" href="mailto:hewagesavindi@gmail.com"><span>✉</span><div><small>Email</small><strong>hewagesavindi@gmail.com</strong></div></a>
+            <a class="contact-item" href="tel:+94741197465"><span>☎</span><div><small>Phone</small><strong>+94 74 119 7465</strong></div></a>
+            <a class="contact-item" href="https://www.linkedin.com/in/savindi-hewage/" target="_blank" rel="noopener noreferrer"><span>in</span><div><small>LinkedIn</small><strong>Connect with me</strong></div></a>
+            <a class="contact-item" href="https://github.com/Savindi2002" target="_blank" rel="noopener noreferrer"><span>⌘</span><div><small>GitHub</small><strong>Explore my repositories</strong></div></a>
+            <a class="contact-item" href="https://www.instagram.com/_saaviii.___?psln=bTY2NmdkeXVrN3Z2&utm_source=qr" target="_blank" rel="noopener noreferrer"><span>◎</span><div><small>Instagram</small><strong>Connect with me</strong></div></a>
+          </div>
+          <form class="contact-form reveal d1" id="contactForm">
+            <label for="name">Your name<input id="name" name="name" autocomplete="name" required></label>
+            <label for="email">Your email<input id="email" name="email" type="email" autocomplete="email" required></label>
+            <label for="message">Your message<textarea id="message" name="message" rows="5" required></textarea></label>
+            <button class="button primary" type="submit">Prepare email ↗</button>
+            <p class="form-note">Your email app will open with the message addressed to me. You can review and send it there.</p>
           </form>
         </div>
       </div>
     </section>
   </main>
-
-  <footer>© <span id="year">2026</span> Savindi Hewage. Built with HTML, CSS and JavaScript.</footer>
-
+  <footer><div class="container footer-inner"><a class="brand" href="#home">SAVINDI HEWAGE<span>.</span></a><p>© <span id="year"></span> Savindi Hewage · Designed with purpose.</p><a href="#home">Back to top ↑</a></div></footer>
   <script src="script.js"></script>
 </body>
 </html>

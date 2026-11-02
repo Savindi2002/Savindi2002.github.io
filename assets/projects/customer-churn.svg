@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" role="img" aria-label="A customer analytics dashboard with a predictive trend chart.">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101923"/><stop offset="1" stop-color="#080b10"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#a77b24" stop-opacity=".3"/><stop offset="1" stop-color="#a77b24" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="500" height="320" rx="22" fill="url(#bg)"/>
+<circle cx="250" cy="155" r="190" fill="url(#glow)"/>
+<g opacity=".16" stroke="#d8aa3d" stroke-width="1"><path d="M0 80H500M0 160H500M0 240H500M100 0V320M200 0V320M300 0V320M400 0V320"/></g>
+
+<path d="M65 245 V75 M65 245 H430" stroke="#8193a8" stroke-width="4"/>
+<g fill="#b78a2d"><rect x="100" y="190" width="42" height="55" rx="5"/><rect x="170" y="160" width="42" height="85" rx="5"/><rect x="240" y="130" width="42" height="115" rx="5"/><rect x="310" y="95" width="42" height="150" rx="5"/></g>
+<path d="M90 175 Q160 155 205 135 T390 65" fill="none" stroke="#f7d56c" stroke-width="7"/>
+<path d="M365 65 L390 65 L386 91" fill="none" stroke="#f7d56c" stroke-width="7"/>
+
+<rect x="10" y="10" width="480" height="300" rx="17" fill="none" stroke="#c99a35" stroke-opacity=".48" stroke-width="2"/>
+</svg>

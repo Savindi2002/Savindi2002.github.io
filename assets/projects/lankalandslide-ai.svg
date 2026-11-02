@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" role="img" aria-label="A terrain map with a highlighted landslide-risk zone and warning marker.">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101923"/><stop offset="1" stop-color="#080b10"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#a77b24" stop-opacity=".3"/><stop offset="1" stop-color="#a77b24" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="500" height="320" rx="22" fill="url(#bg)"/>
+<circle cx="250" cy="155" r="190" fill="url(#glow)"/>
+<g opacity=".16" stroke="#d8aa3d" stroke-width="1"><path d="M0 80H500M0 160H500M0 240H500M100 0V320M200 0V320M300 0V320M400 0V320"/></g>
+
+<path d="M40 235 L145 95 L225 178 L300 58 L460 235Z" fill="#182b2b" stroke="#c99a2e" stroke-width="3"/>
+<path d="M75 235 L165 125 L220 185 L295 100 L410 235" fill="none" stroke="#6f9c75" stroke-width="8"/>
+<path d="M210 235 Q245 185 270 170 Q315 142 350 120" fill="none" stroke="#ffcc4d" stroke-width="15" opacity=".8"/>
+<circle cx="340" cy="125" r="30" fill="#ffcc4d"/><path d="M340 105 L340 137 M340 148 L340 151" stroke="#17130a" stroke-width="7" stroke-linecap="round"/>
+<path d="M55 270 H445" stroke="#70551e" stroke-width="2"/>
+
+<rect x="10" y="10" width="480" height="300" rx="17" fill="none" stroke="#c99a35" stroke-opacity=".48" stroke-width="2"/>
+</svg>
